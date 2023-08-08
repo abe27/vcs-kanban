@@ -85,6 +85,7 @@ class JobOrderAdmin(admin.ModelAdmin):
     pass
 
 class ViewJobOrderAdmin(admin.ModelAdmin):
+    change_form_template = "kanban/change_form.html"
     search_fields = (
         'jobno',
     )
@@ -129,6 +130,10 @@ class ViewJobOrderAdmin(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
+    
+    # def response_change(self, request, object):
+    #     if "_reset-kanban" in request.POST:
+    #         print("Received")
     
     def save_model(self, request, obj, form, change):
         # print(obj.jobno)

@@ -69,6 +69,8 @@ STATUS_CHOICES = (
     (0, "รอดำเนินการ"),
     (1, "ยกเลิก"),
 )
+
+
 class ViewJobOrder(models.Model):
     jobno = models.CharField(primary_key=True,max_length=20, verbose_name="เลขที่เอกสาร", db_column="jobno", editable=True)
     ctn = models.IntegerField(verbose_name="จำนวน",db_column="ctn")
