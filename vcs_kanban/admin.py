@@ -85,7 +85,7 @@ class JobOrderAdmin(admin.ModelAdmin):
     pass
 
 class ViewJobOrderAdmin(admin.ModelAdmin):
-    change_form_template = "kanban/change_form.html"
+    # change_form_template = "kanban/change_form.html"
     search_fields = (
         'jobno',
     )
@@ -167,5 +167,5 @@ class ViewJobOrderAdmin(admin.ModelAdmin):
 # admin.site.register(JobToTrack,JobToTrackAdmin)
 admin.site.register(ViewJobOrder, ViewJobOrderAdmin)
 # admin.site.register(JobOrder,JobOrderAdmin)
-admin.site.unregister(Group)
-admin.site.unregister(User)
+# admin.site.unregister(Group)
+# admin.site.unregister(User)
