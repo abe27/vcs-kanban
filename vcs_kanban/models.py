@@ -66,7 +66,7 @@ class Track(models.Model):
         verbose_name_plural = "TRACK"
 
 STATUS_CHOICES = (
-    (0, "รอดำเนินการ"),
+    (0, "กำลังดำเนินการ"),
     (1, "ยกเลิก"),
 )
 
