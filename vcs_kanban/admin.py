@@ -138,27 +138,28 @@ class ViewJobOrderAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         # print(obj.jobno)
         # print(obj.status)
-        ## Step 1.
-        Track.objects.filter(rJOB_NO=obj.jobno, rSTATUS=0).update(
-            rAC_CT="0",
-            rENDDATE=datetime.now(),
-            rUSER_ID=None,
-            rSTATUS=obj.status,
-            rACT_STARTDATE=datetime.now(),
-        )
-        ## Step 2.
-        JobOrder.objects.filter(rJOB_NO=obj.jobno).update(
-            rMTM_DATE=datetime.now(),
-            rSTATUS=0,
-        )
-        ## Step 3.
-        JobToTrack.objects.filter(rJOB_NO=obj.jobno).update(
-            rSTATUS=obj.status,
-        )
+        if obj.status == 1:
+            # Step 1.
+            Track.objects.filter(rJOB_NO=obj.jobno).update(
+                rAC_CT="0",
+                rENDDATE=datetime.now(),
+                rUSER_ID=None,
+                rSTATUS=obj.status,
+                rACT_STARTDATE=datetime.now(),
+            )
+            ## Step 2.
+            JobOrder.objects.filter(rJOB_NO=obj.jobno).update(
+                rMTM_DATE=datetime.now(),
+                rSTATUS=obj.status,
+            )
+            ## Step 3.
+            JobToTrack.objects.filter(rJOB_NO=obj.jobno).update(
+                rSTATUS=obj.status,
+            )
 
     readonly_fields = ["jobno", "ctn", "start_at", "end_at", "userid",]
     empty_value_display = "-"
-    list_per_page = 25
+    list_per_page = 15
     
     pass
 
