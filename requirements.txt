@@ -1,0 +1,6 @@
+asgiref==3.8.1
+Django==5.0.6
+mssql-django==1.5
+pyodbc==5.1.0
+pytz==2024.1
+sqlparse==0.5.0
