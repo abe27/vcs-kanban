@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-k$7r9pjq%-$l4-o2r+18s4gz281&4+of@t_1kg3z2rjoeff$ki
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://edi-vcst.in.th","edi-vcst.in.th","125.25.57.91", ]
+CSRF_TRUSTED_ORIGINS = ["https://edi-vcst.in.th", "https://kanban.edi-vcst.in.th"]
+if DEBUG:
+    ALLOWED_HOSTS = ["*"]
+    # CSRF_TRUSTED_ORIGINS = ["*"]
 
 
 # Application definition
